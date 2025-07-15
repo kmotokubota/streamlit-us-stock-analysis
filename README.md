@@ -20,12 +20,7 @@ SnowflakeのマーケットプレイスデータとStreamlitを使用した、�
 
 ## 📋 セットアップ
 
-### 1. 依存関係のインストール
-```bash
-pip install -r requirements.txt
-```
-
-### 2. Snowflakeマーケットプレイスデータの準備
+### 1. Snowflakeマーケットプレイスデータの準備
 1. Snowflakeアカウントにログイン
 2. マーケットプレイスから金融データセットを取得
    - 推奨: **Cybersyn Financial & Economic Essentials**
@@ -34,7 +29,7 @@ pip install -r requirements.txt
 
 **重要**: マーケットプレイスデータが利用できない場合、アプリケーションは自動的にサンプルデータを生成します。
 
-### 3. データソースの設定
+### 2. データソースの設定
 Cybersyn Financial & Economic Essentialsデータセットでは、価格データが`value`カラムに格納され、`variable_name`で種類を区別します：
 
 ```python
