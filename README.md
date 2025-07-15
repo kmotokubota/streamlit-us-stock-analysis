@@ -99,9 +99,7 @@ ORDER BY date DESC;
 ## 🎮 使用方法
 
 ### 1. アプリケーションの起動
-```bash
-streamlit run financial_analysis_app.py
-```
+- SnowsightよりStreamlitを起動し、アップロードしたアプリを選択
 
 ### 2. 銘柄の選択
 - **人気銘柄から選択**: AAPL, GOOGL, MSFT, AMZN, TSLA, NVDA, META, NFLX
