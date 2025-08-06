@@ -99,7 +99,9 @@ ORDER BY date DESC;
 ## 🎮 使用方法
 
 ### 1. アプリケーションの起動
-- SnowsightよりStreamlitを起動し、アップロードしたアプリを選択
+- SnowsightよりStreamlitを起動し、Pythonコードをコピーアンドペースト
+- 画面左上のパッケージよりplotlyを追加
+- 画面右上で実行
 
 ### 2. 銘柄の選択
 - **人気銘柄から選択**: AAPL, GOOGL, MSFT, AMZN, TSLA, NVDA, META, NFLX
