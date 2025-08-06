@@ -36,7 +36,7 @@ st.title("📈米国株式分析アプリ")
 st.markdown("---")
 
 # Snowflakeセッションの取得
-@st.cache_resource
+@st.cache_resource(ttl=600)
 def get_snowflake_session():
     try:
         session = get_active_session()
@@ -46,7 +46,7 @@ def get_snowflake_session():
         return None
 
 # 株式データの取得（マーケットプレイスデータを想定）
-@st.cache_data
+@st.cache_data(ttl=600)
 def get_stock_data(ticker_symbol, days=365):
     """
     Snowflakeのマーケットプレイスから株式データを取得
