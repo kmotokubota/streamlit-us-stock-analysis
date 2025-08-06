@@ -1,7 +1,0 @@
-streamlit
-pandas
-plotly
-numpy
-snowflake-snowpark-python
-snowflake-connector-python
-datetime
