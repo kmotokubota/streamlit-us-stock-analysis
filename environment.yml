@@ -1,5 +1,4 @@
 name: streamlit_stock_analysis
-
 channels:
   - snowflake
 dependencies:
