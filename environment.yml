@@ -1,0 +1,9 @@
+name: streamlit_stock_analysis
+channels:
+  - snowflake
+dependencies:
+  - streamlit>=1.26.0
+  - plotly
+  - pandas
+  - numpy
+
