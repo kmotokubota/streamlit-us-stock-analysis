@@ -12,8 +12,8 @@ from snowflake.snowpark.functions import max as sf_max, min as sf_min
 
 # AI_COMPLETE関数用のLLMモデル選択肢
 AI_COMPLETE_MODELS = [
+    "claude-4-sonnet",
     "llama4-maverick",
-    "claude-3-5-sonnet", 
     "mistral-large2"
 ]
 
@@ -59,7 +59,7 @@ def get_stock_data(ticker_symbol, days=365):
     # まず利用可能なvariable_nameを確認
     debug_query = f"""
     SELECT DISTINCT variable_name, COUNT(*) as count
-    FROM FINANCE__ECONOMICS.CYBERSYN.STOCK_PRICE_TIMESERIES 
+    FROM SNOWFLAKE_PUBLIC_DATA_FREE.PUBLIC_DATA_FREE.STOCK_PRICE_TIMESERIES 
     WHERE ticker = '{ticker_symbol}'
     AND date >= CURRENT_DATE - 30
     GROUP BY variable_name
@@ -84,7 +84,7 @@ def get_stock_data(ticker_symbol, days=365):
                 ticker,
                 variable_name,
                 value
-            FROM FINANCE__ECONOMICS.CYBERSYN.STOCK_PRICE_TIMESERIES
+            FROM SNOWFLAKE_PUBLIC_DATA_FREE.PUBLIC_DATA_FREE.STOCK_PRICE_TIMESERIES
             WHERE ticker = '{ticker_symbol}'
             AND date >= CURRENT_DATE - {days}
             AND value IS NOT NULL
@@ -153,7 +153,7 @@ def get_stock_data(ticker_symbol, days=365):
                 ticker,
                 variable_name,
                 value
-            FROM FINANCE__ECONOMICS.CYBERSYN.STOCK_PRICE_TIMESERIES
+            FROM SNOWFLAKE_PUBLIC_DATA_FREE.PUBLIC_DATA_FREE.STOCK_PRICE_TIMESERIES
             WHERE ticker = '{ticker_symbol}'
             AND date >= CURRENT_DATE - {days}
             AND value IS NOT NULL
@@ -217,7 +217,7 @@ def get_stock_data(ticker_symbol, days=365):
                 ticker,
                 variable_name,
                 value
-            FROM FINANCE__ECONOMICS.CYBERSYN.STOCK_PRICE_TIMESERIES
+            FROM SNOWFLAKE_PUBLIC_DATA_FREE.PUBLIC_DATA_FREE.STOCK_PRICE_TIMESERIES
             WHERE ticker = '{ticker_symbol}'
             AND date >= CURRENT_DATE - {days}
             AND value IS NOT NULL
@@ -279,7 +279,7 @@ def get_stock_data(ticker_symbol, days=365):
                 ticker,
                 MAX(CASE WHEN variable_name = 'Post-Market Close' THEN value END) AS price,
                 MAX(CASE WHEN variable_name = 'Nasdaq Volume' THEN value END) AS volume
-            FROM FINANCE__ECONOMICS.CYBERSYN.STOCK_PRICE_TIMESERIES
+            FROM SNOWFLAKE_PUBLIC_DATA_FREE.PUBLIC_DATA_FREE.STOCK_PRICE_TIMESERIES
             WHERE ticker = '{ticker_symbol}'
             AND date >= CURRENT_DATE - {days}
             AND value IS NOT NULL
